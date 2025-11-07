@@ -1,0 +1,159 @@
+/*RESET*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*base*/
+body {
+    font-family: system-ui, -apple-system, "segoe ui", sans-serif;
+    background-color: hsl(0, 25%, 97%);
+    color: #0c0b0c;
+    line-height: 1.6;
+}
+
+/*NAVBAR (will be injected by JS)*/
+header {
+    background-color: #a7dab0;
+    color:hsl(247, 69%, 52%);
+}
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover{
+    text-decoration: underline;
+    color: #000;
+}
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/*LAYOUT*/
+.container {
+    max-width: 1100px;
+    margin: 1.5 auto;
+    padding: 0 1rem;
+}
+
+.hero {
+  background: #e4b7a7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgb(0, 0, 0);
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #111;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.highlight-grid,
+.project-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* JOURNAL */
+.journal-entry {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.journal-entry h2 {
+  margin-bottom: 0.5rem;
+  color: #111;
+}
+
+/* Collapsible */
+.collapsible h2 {
+  cursor: pointer;
+}
+.collapsible .content.hidden {
+  display: none;
+}
+
+/* SKILLS */
+.skills-list {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  background: #111;
+  color: #fff;
+}
+
+/* DARK THEME */
+body.dark {
+  background: #111;
+  color: #f7f7f7;
+}
+
+body.dark .hero,
+body.dark .journal-entry,
+body.dark .card {
+  background: #222;
+  color: #fff;
+}
+
+body.dark header,
+body.dark footer {
+  background: #000;
+}
+
+/* RESPONSIVE */
+@media (min-width: 768px) {
+  .highlight-grid,
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
