@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Learning PWA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<script src="js/script.js"></script>
+<body>
+    <header>
+            <div id="navbar"></div>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <h1>Hi, I am Nishal </h1>
+            <p>Welcom to my Learning Journal PWA for Mobile Application Development.</p>
+            <p><strong>Here I will document each week and show my projects.</strong></p>
+        </section>
+
+    <!-- Main journal content-->
+    <main class="container">
+
+        <!--Week 1 !-->
+        <section class="journal-entries">
+            <h2>Journal Entries</h2>
+            <p>This page record my weekly reflections for the Mobile Application Development unit.</p>
+            <article class=" journal entry">
+                <h3>Week 1: Introduction to PWA (Mobile first design)</h3>
+                <div class="content">
+                <p>This week, I learned about the basics of Progressive Web Apps (PWA), including their features and benefits. I set up my development environment and created a simple PWA.</p>
+                
+                <p><strong>How did I approach mobile first design?</strong><br>
+                I started by designing the layout for small screens first using a single-colum layout. Then I used CSS media queries to make it responsiv for larger screens.</p>
+               
+                <p><strong>Most useful HTML or CSS concept:</strong><br>
+                I learned how to use flexbox for aligning navigation elements and layout control.</p>
+                
+                <p><strong>What was most challenging?</strong><br>
+                Understanding how to reuse the same navigationbar across multiple pages without JavaScript.</p>
+            </div>
+            </article>
+
+              <!--Week 2 !-->
+            <article class=" journal- entry">
+
+                <h3>Week 2: Frontend Fundamentals</h3>
+                <div class="content">
+                <p>This week, I focused on enhancing the frontend of my PWA. I learned about semantic HTML5 elements and improved my CSS skills.</p>
+                
+                <p><strong>How did I approach mobile first design?</strong><br>
+                    I built the layout to fit mobile screens first, then applied Grid and Flexbox for wider views.</p>
+                
+                    <p><strong>Most useful concept:</strong><br>
+                Creating a consistent page structure using shared CSS and sematic HTML tags.</p>
+               
+                <p><strong>What was most challenging?</strong><br>
+                    Keeping font size and padding consistent across devices.</p>
+                    </div>
+            </article>
+                <!--Week 3 !-->
+            <article class="journal-entry">
+                <h3>Week 3: JavaScript & DOM Manipulation</h3>
+                <div class="content">
+                    this week, I delved into JavaScript basics and DOM manipulation to make my PWA interactive. I learned how to select and modify HTML elements using JavaScript
+                
+                <p><strong>Which DOM selection method did you use?</strong><br>
+                <code>getElementById()</code> and <code>querySelectorAll()</code>.</p>
+                
+                <p><strong>What was most Challenging?:</strong><br>
+                 Making sure JS runs after HTML.</p>
+
+                <p><strong>Debugging:</strong><br>
+                 Used browser console.</p>
+                    </div>
+            </article>
+                <!--Week 4 !-->
+            <article class=" journal-entry">
+                <h3>Week 4: APIs (Storage, Browser, Third-Party)</h3>
+                <div class="content">
+                <p>This week, I explored various web APIs to enhance my PWA's functionality. I learned about Local Storage, Geolocation API, and Fetch API.</p>
+                
+                <p><strong>Which APIs did you use?</strong><br>
+                 Local Storage (to save data), Clipboard API (to copy), and YouTube embed.</p>
+               
+                 <p><strong>Challenging:</strong><br>
+                Converting data to JSON and back.</p>
+                
+                <p><strong>Result:</strong><br>
+                  Now my journal keeps entries even after refresh.</p>
+             </div>
+            </article>
+     <!-- Form to add your own entry (week 4 task) -->
+             <section class="journal-form">
+             <h2>Add a new journal entry</h2>
+             <p>This will be saved in your browser using Local Storage.</p>
+             <form id="journalForm">
+             <label for="journalText">Your entry:</label>
+             <textarea id="journalText" rows="4" placeholder="Write what you learned today..." required></textarea>
+            <button type="submit" class="btn">Save Entry</button>
+         </form>       
+        </section>
+         <section id="savedEntries">
+         <h2>My saved entries (local)</h2>
+         <div id="entriesList"></div>
+    </section>   
+
+     </main>
+     <FOoter>
+        <p>@ 2025 Nishal Chaudhary • Learning journal PWA. </p>
+     </FOoter>
+</body>
+</html>
