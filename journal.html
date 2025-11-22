@@ -81,7 +81,7 @@
                 <p>This week, I explored various web APIs to enhance my PWA's functionality. I learned about Local Storage, Geolocation API, and Fetch API.</p>
                 
                 <p><strong>Which APIs did you use?</strong><br>
-                 Local Storage (to save data), Clipboard API (to copy), and YouTube embed.</p>
+                 Local Storage (to save data), Clipboard API (to copy).</p>
                
                  <p><strong>Challenging:</strong><br>
                 Converting data to JSON and back.</p>
@@ -105,6 +105,24 @@
          <div id="entriesList"></div>
     </section>   
 
+    <!-- JESON-based reflections (task 2)-->
+    <section>
+        <h2>Weekly Reflections from JSON file </h2>
+        
+        <!-- Extra feature: filter by week-->
+         <label for="weekFilter">Filter by week</label>
+         <select id="weekFilter">
+            <option value="all">All weeks</option>
+            <option value="1">week 1</option>
+            <option value="2">week 2</option>
+            <option value="3">week 3</option>
+         </select>
+         <!-- Entries from reflections.json will appear here-->
+     <div id="jsonEntries"></div>
+
+        <!-- Shows how many entries are currently displayed-->
+         <p id="entryCount"></p>
+    </section>
      </main>
      <FOoter>
         <p>@ 2025 Nishal Chaudhary • Learning journal PWA. </p>

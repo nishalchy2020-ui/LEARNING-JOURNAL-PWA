@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "week": 1,
+        "date": "2025-01-15",
+        "title": "Introduction to PWA",
+        "reflection": "I learned about service workers, cache, and mobile-first design."
+    },
+    {
+        "id": 2,
+        "week": 2,
+        "date": "2025-01-15",
+        "title": "Frontend Fundamentals",
+        "reflection": "I practised semantic HTML and improved my CSS using Grid and Flexbox"
+    }
+]

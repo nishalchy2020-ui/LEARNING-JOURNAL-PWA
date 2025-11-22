@@ -115,3 +115,84 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+// ========================
+// Task 2: JSON reflections
+// ========================
+
+// 1. Fetch the reflections from reflections.json
+async function loadJsonReflections() {
+  try{
+    const respons = await fetch("data/reflections.json"); //path from journal.html
+    const data = await Response.json();
+
+    // store globally for filtering
+    window.allReflections = data;
+    displayReflections(data);
+    updateEntryCount(data);
+  } catch (error) {
+    console.error("Error loading reflections.json:", error);
+  }
+}
+
+// 2. Render the reflections inside #jsonEntries
+function displayReflections(reflection){
+  const container = document.getElementById("jsonEntries");
+  if (!container) return; // not on this page
+
+  container.innerHTML = "";
+
+  if (reflections.length === 0) {
+    container.innerHTML = "<p>No reflections found in JSON.</p>";
+    return;
+  }
+  reflections.forEach(entry => {
+        const card = document.createElement("article");
+        card.classList.add("journal-card");
+
+        card.innerHTML = `
+            <h3>Week ${entry.week}: ${entry.title}</h3>
+            <p><strong>Date:</strong> ${entry.date}</p>
+            <p>${entry.reflection}</p>
+        `;
+
+        container.appendChild(card);
+    });
+}
+
+function updateJsonCount(reflections) {
+    const countEl = document.getElementById("entryCount");
+    if (!countEl) return;
+    countEl.textContent = `Total JSON reflections: ${reflections.length}`;
+}
+
+// Extra feature: filter JSON reflections by week
+function setupWeekFilter() {
+    const filter = document.getElementById("weekFilter");
+    if (!filter) return;
+
+    filter.addEventListener("change", () => {
+        if (!window.allReflections) return;
+
+        const value = filter.value;
+        if (value === "all") {
+            renderJsonReflections(window.allReflections);
+            updateJsonCount(window.allReflections);
+        } else {
+            const weekNumber = parseInt(value);
+            const filtered = window.allReflections.filter(
+                (entry) => entry.week === weekNumber
+            );
+            renderJsonReflections(filtered);
+            updateJsonCount(filtered);
+        }
+    });
+}
+
+// Run this when the page finishes loading
+document.addEventListener("DOMContentLoaded", () => {
+    // Only run on journal page (where jsonEntries exists)
+    if (document.getElementById("jsonEntries")) {
+        loadJsonReflections();
+        setupWeekFilter();
+    }
+  });
