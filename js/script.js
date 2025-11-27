@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadJsonReflections() {
   try{
    // if reflections.json is in thee same folder as journal.html:
-    const response = await fetch("data/reflections.json");
+    const response = await fetch("https://nishalchy2020.pythonanywhere.com/api/reflections");
     
      // // If it's inside a "data" folder instead, change to:
     // const response = await fetch("data/reflections.json");
