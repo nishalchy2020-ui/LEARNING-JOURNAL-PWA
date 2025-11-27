@@ -1,11 +1,10 @@
 import json
 import os
 
-# Path to JSON file: ../data/reflections.json
-JSON_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "reflections.json")
+# JSON file in the same folder as this script
+JSON_PATH = os.path.join(os.path.dirname(__file__), "reflections.json")
 
 def load_data():
-    # If the file doesn't exist yet, return an empty list
     if not os.path.exists(JSON_PATH):
         return []
     with open(JSON_PATH, "r") as f:
@@ -36,7 +35,7 @@ def add_entry():
 
     data.append(new_entry)
     save_data(data)
-    print("Entry added and JSON file updated.")
+    print("Entry added and JSON file updated at:", JSON_PATH)
 
 if __name__ == "__main__":
     add_entry()

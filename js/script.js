@@ -122,20 +122,26 @@ document.addEventListener("DOMContentLoaded", () => {
 // 1. Fetch the reflections from reflections.json
 async function loadJsonReflections() {
   try{
-    const respons = await fetch("data/reflections.json"); //path from journal.html
-    const data = await Response.json();
+   // if reflections.json is in thee same folder as journal.html:
+    const response = await fetch("data/reflections.json");
+    
+     // // If it's inside a "data" folder instead, change to:
+    // const response = await fetch("data/reflections.json");
+    
+    const reflections = await response.json();
 
-    // store globally for filtering
-    window.allReflections = data;
-    displayReflections(data);
-    updateEntryCount(data);
+    // store globally for filtering + export
+    window.allReflections = reflections;
+
+    renderJsonReflections(reflections);
+    updateJsonCount(reflections);
   } catch (error) {
     console.error("Error loading reflections.json:", error);
   }
 }
 
 // 2. Render the reflections inside #jsonEntries
-function displayReflections(reflection){
+function renderJsonReflections(reflections) {
   const container = document.getElementById("jsonEntries");
   if (!container) return; // not on this page
 
@@ -159,40 +165,71 @@ function displayReflections(reflection){
     });
 }
 
+ // 3. Update how many entries are shown
 function updateJsonCount(reflections) {
     const countEl = document.getElementById("entryCount");
     if (!countEl) return;
     countEl.textContent = `Total JSON reflections: ${reflections.length}`;
 }
 
-// Extra feature: filter JSON reflections by week
+// 4. Extra feature: filter JSON reflections by week
 function setupWeekFilter() {
-    const filter = document.getElementById("weekFilter");
-    if (!filter) return;
+    const select = document.getElementById("weekFilter");
+    if (!select) return;
 
-    filter.addEventListener("change", () => {
-        if (!window.allReflections) return;
+    select.addEventListener("change", () => {
+      if (!window.allReflections) return;
+        
+      const value = select.value;
 
-        const value = filter.value;
-        if (value === "all") {
-            renderJsonReflections(window.allReflections);
-            updateJsonCount(window.allReflections);
-        } else {
-            const weekNumber = parseInt(value);
-            const filtered = window.allReflections.filter(
-                (entry) => entry.week === weekNumber
-            );
-            renderJsonReflections(filtered);
-            updateJsonCount(filtered);
+      if (value === "all") {
+          renderJsonReflections(window.allReflections);
+          updateJsonCount(window.allReflections);
+      } else {
+          const weekNumber = parseInt(value);
+          const filtered = window.allReflections.filter(
+           (entry) => entry.week === weekNumber
+          );
+          renderJsonReflections(filtered);
+          updateJsonCount(filtered);
+      }
+    });
+}
+// 5. Extra feature: export current JSON reflections as a file
+function setupExportButton() {
+    const btn = document.getElementById("exportJsonBtn");
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+        if (!window.allReflections) {
+            alert("No reflections loaded yet.");
+            return;
         }
+
+        const blob = new Blob(
+            [JSON.stringify(window.allReflections, null, 2)],
+            { type: "application/json" }
+        );
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "reflections.json";
+        document.body.appendChild(a);
+        a.click();
+
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     });
 }
 
-// Run this when the page finishes loading
+
+// 6. Run JSON features when the page loads
 document.addEventListener("DOMContentLoaded", () => {
     // Only run on journal page (where jsonEntries exists)
     if (document.getElementById("jsonEntries")) {
         loadJsonReflections();
         setupWeekFilter();
+       setupExportButton();
     }
   });
