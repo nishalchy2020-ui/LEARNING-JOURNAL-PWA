@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function loadJsonReflections() {
   try{
    // if reflections.json is in thee same folder as journal.html:
-    const response = await fetch("https://nishalchy2020.pythonanywhere.com/api/reflections");
+    const response = await fetch("https://nishalchy2020.pythonanywhere.com/reflections");
     
      // // If it's inside a "data" folder instead, change to:
     // const response = await fetch("data/reflections.json");
@@ -233,3 +233,17 @@ document.addEventListener("DOMContentLoaded", () => {
        setupExportButton();
     }
   });
+
+  // ---- PWA: register service worker ----
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./service-worker.js")   // relative path in your repo
+      .then(reg => {
+        console.log("Service worker registered:", reg.scope);
+      })
+      .catch(err => {
+        console.error("Service worker registration failed:", err);
+      });
+  });
+}
