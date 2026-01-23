@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Journal Learning PWA</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#111827">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+         <div id="navbar"></div>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <h1>Hi, I am Nishal </h1>
+            <p>Welcom to my Learning Journal PWA for Mobile Application Development.</p>
+            <p><strong>Here I will document each week and show my projects.</strong></p>
+            <p id="dateDisplay"></p>
+            <a href="/journal.html" class="btn">Go to Journal</a>
+        </section>
+        <section class="highlight-grid">
+            <article class="card">
+                <h2>Weekly Learning</h2>
+                <p>Read my reflections for each week.</p>
+                <a href="/journal.html"> Open journal →</a>
+            </article>
+            <article class="card">
+        <h2>Projects</h2>
+        <p>Small web apps and coursework projects.</p>
+        <a href="/projects.html">View Projects →</a>
+      </article>
+      <article class="card">
+        <h2>About Me</h2>
+        <p>Who I am and what I study.</p>
+        <a href="/about.html">Read Bio →</a>
+      </article>
+        </section>
+     </main>
+<div id="offlineOverlay" class="offline-overlay hidden">
+  <p> You are offline</p>
+</div>
+     <Footer>
+        <p>@ 2025 Nishal Chaudhary • Learning journal PWA. </p>
+     </Footer>
+
+     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", sans-serif;
+    background-color: #f4f4f9;
+    color: #1a1a1a;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* header and navbar */
+header {
+    background-color: #4caf7f;
+    color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.nav-links button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* container and hero */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.hero {
+    background: linear-gradient(135deg, #81c784, #4caf7f);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+/* buttons */
+.btn {
+    display: inline-block;
+    background-color: #4caf7f;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: #45a069;
+    transform: translateY(-2px);
+}
+
+/* cards section */
+.card,
+.journal-entry,
+.journal-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover,
+.journal-entry:hover,
+.journal-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.highlight-grid,
+.project-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.journal-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+    color: #2e7d32;
+}
+
+.journal-card p {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.4rem;
+}
+
+/* journal form */
+.journal-form form {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.journal-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.journal-form textarea,
+.journal-form select {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.journal-form textarea:focus,
+.journal-form select:focus {
+    outline: none;
+    border-color: #4caf7f;
+}
+/* footer */
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: #4caf7f;
+    color: #fff;
+    margin-top: 3rem;
+    border-radius: 8px 8px 0 0;
+}
+
+/* dark theme */
+body.dark {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+body.dark .hero {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+}
+
+body.dark .card,
+body.dark .journal-entry,
+body.dark .journal-card,
+body.dark .journal-form form {
+    background-color: #1f1f1f;
+    color: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+body.dark header,
+body.dark footer {
+    background-color: #0d3b1e;
+}
+
+/* responsive grid */
+@media (min-width: 768px) {
+    .highlight-grid,
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* online/offline overlay */
+.offline-overlay {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #ff4c4c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+.offline-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.offline-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* install button */
+.install-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #1d4ed8;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 9999;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Dashboard | Learning Journal PWA</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#111827">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div id="navbar"></div>
+  </header>
+
+  <main class="container">
+    <h1>Reflection Dashboard</h1>
+    <p>
+      This dashboard visualises my learning journal entries and moods over time.
+      It provides insights into my learning patterns and emotional trends throughout the module.
+    </p>
+
+    <section class="dashboard-section">
+      <h2>Total Journal Entries</h2>
+      <p id="entryCount">Loading...</p>
+    </section>
+
+    <section class="dashboard-section">
+      <h2>Mood Distribution</h2>
+      <canvas id="moodChart" width="400" height="300"></canvas>
+    </section>
+
+    <section class="dashboard-section">
+      <h2>Learning Progress Overview</h2>
+      <p>
+        Tracking reflections and moods helps identify productive periods and areas
+        that require improvement, supporting reflective and self-directed learning.
+      </p>
+    </section>
+  </main>
+<div id="offlineOverlay" class="offline-overlay hidden">
+  <p> You are offline</p>
+</div>
+  <footer>
+    <p>© 2025 Nishal Chaudhary • Learning Journal PWA</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>About Me | Learning Journal PWA</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#111827">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <header>
@@ -25,14 +32,18 @@
     </ul>
 
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:nishal@example.com">nishalchy2020@gmail.com</a></p>
-    <p>GitHub: <a href="#" target="_blank">https://github.com/nishalchy2020-ui/TemperatureConverterPWA</a></p>
+    <p>Email: <a href="mailto:nishalchy2020@gmail.com">nishalchy2020@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/nishalchy2020-ui/TemperatureConverterPWA" target="_blank">
+  https://github.com/nishalchy2020-ui/TemperatureConverterPWA
+</a></p>
   </main>
-
+<div id="offlineOverlay" class="offline-overlay hidden">
+  <p> You are offline</p>
+</div>
   <footer>
     <p>© 2025 Nishal Chaudhary • Learning Journal PWA</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

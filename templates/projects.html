@@ -3,8 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Learning Journal PWA</title>
-  <link rel="stylesheet" href="css/style.css">
+
+  <title>Projects Learning Journal PWA</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="theme-color" content="#111827">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
   <header>
@@ -19,7 +26,9 @@
       <article class="card">
         <h2>Temperature Converter PWA</h2>
         <p>A simple PWA that converts Celsius, Fahrenheit, and Kelvin.</p>
-        <a href="#" target="_blank">https://github.com/nishalchy2020-ui/TemperatureConverterPWA</a>
+        <a href="https://github.com/nishalchy2020-ui/TemperatureConverterPWA" target="_blank">
+  View on GitHub
+</a>
       </article>
 
       <article class="card">
@@ -33,11 +42,13 @@
       </article>
     </section>
   </main>
-
+<div id="offlineOverlay" class="offline-overlay hidden">
+  <p> You are offline</p>
+</div>
   <footer>
     <p>© 2025 Nishal Chaudhary • Learning Journal PWA</p>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
